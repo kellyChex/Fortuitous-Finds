@@ -16,7 +16,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'byebug'
 end
