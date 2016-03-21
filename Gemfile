@@ -17,6 +17,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'byebug'
 end
@@ -24,5 +26,12 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'timecop'
 end
