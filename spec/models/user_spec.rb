@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { is_expected.to have_many(:listings) }
+  it { is_expected.to have_many(:sales) }
+  it { is_expected.to have_many(:purchases) }
+
   it 'has a valid factory' do
     expect(build(:user)).to be_valid
   end

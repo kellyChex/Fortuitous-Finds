@@ -21,6 +21,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'byebug'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -29,7 +30,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
