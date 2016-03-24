@@ -24,7 +24,7 @@ RSpec.describe OrdersController, type: :controller do
       end
   end
 
-  describe 'GET #sales' do
+  describe 'GET #sellers_sales' do
     it "assigns all of the seller's sales in descending order" do
       old_order = create(:order, seller: @user, created_at: '12/22/2014',
         listing_id: @listing2.id)
@@ -32,7 +32,7 @@ RSpec.describe OrdersController, type: :controller do
         listing_id: @listing1.id)
       diff_order = create(:order, seller: @user2, created_at: '12/26/2014',
         listing_id: @user2_listing.id)
-      get :sales
+      get :sellers_sales
 
       expect(assigns(:orders)).to match([new_order, old_order])
     end
@@ -46,7 +46,7 @@ RSpec.describe OrdersController, type: :controller do
         listing_id: @listing1.id)
       diff_order = create(:order, buyer: @user2, created_at: '12/26/2014',
         listing_id: @user2_listing.id)
-      get :purchases
+      get :buyers_purchases
 
       expect(assigns(:orders)).to match([new_order, old_order])
     end
