@@ -35,7 +35,7 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
+        format.html { redirect_to @listing, notice: I18n.t('messages.created', name: 'Listing') }
         format.json { render :show, status: :created, location: @listing }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+        format.html { redirect_to @listing, notice: I18n.t('messages.updated', name: 'Listing') }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to listings_url, notice: I18n.t('messages.destroyed', name: 'Listing') }
       format.json { head :no_content }
     end
   end

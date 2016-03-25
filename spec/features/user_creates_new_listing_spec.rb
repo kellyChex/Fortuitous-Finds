@@ -1,30 +1,32 @@
 require 'rails_helper'
 
-RSpec.feature 'user creates new listing' do
-  before do
-    @user = create(:user)
-    sign_in @user
+RSpec.feature 'user creates a new listing' do
+  let!(:user) { create(:user) }
+
+  background do
+    login_as(user, scope: :user)
+    visit new_listing_path
   end
 
   context 'with valid credentials' do
-    it 'creates a profile' do
-      fill_in 'Name', with: 'Kelly Chess'
-      fill_in 'Email', with: 'kelly_chess@example.com'
-      fill_in 'Password', with: 'Password123'
-      fill_in 'Password confirmation', with: 'Password123'
-      click_button 'Register'
-      expect(page).to have_content I18n.t('devise.registrations.signed_up')
+    it 'is successfully created' do
+      fill_in 'Name', with: 'Lamp'
+      fill_in 'Description', with: 'Found in the Cave of Wonders'
+      fill_in 'Price', with: 150000.00
+      attach_file 'Image', 'app/assets/images/doublerainbow.jpg'
+      click_button 'Create Listing'
+      expect(page).to have_content I18n.t('messages.created', name: 'Listing')
     end
   end
 
   context 'with invalid credentials' do
-    it 're-renders the sign up page' do
+    it 'is not successfully created' do
       fill_in 'Name', with: nil
-      fill_in 'Email', with: nil
-      fill_in 'Password', with: nil
-      fill_in 'Password confirmation', with: nil
-      click_button 'Register'
-      expect(current_path).to eq user_registration_path
+      fill_in 'Description', with: nil
+      fill_in 'Price', with: nil
+      attach_file 'Image', 'app/assets/images/doublerainbow.jpg'
+      click_button 'Create Listing'
+      expect(page).to_not have_content I18n.t('messages.created', name: 'Listing')
     end
   end
 end
