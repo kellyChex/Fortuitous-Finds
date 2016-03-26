@@ -21,7 +21,6 @@ RSpec.feature 'user edits profile' do
   context "invalid attributes" do
     it 'is not successful updated' do
       visit edit_user_registration_path
-      save_and_open_page
       fill_in 'Name', with: nil
       fill_in 'Current password', with: 'password123'
       click_on 'Update'
