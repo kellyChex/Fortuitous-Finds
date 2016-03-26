@@ -10,6 +10,18 @@ RSpec.describe OrdersController, type: :controller do
     sign_in @user
   end
 
+  describe 'GET #new' do
+    it 'assigns a new order to @order' do
+      get :new, listing_id: @listing1.id
+      expect(assigns(:order)).to be_a_new(Order)
+    end
+
+    it 'renders the :new template' do
+      get :new, listing_id: @listing1.id
+      expect(response).to render_template :new
+    end
+  end
+
   describe 'POST #create' do
     context 'with valid attribute' do
       it 'saves the new order in the database' do

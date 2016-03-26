@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'user edits profile' do
-  let!(:user)           { create(:user) }
+RSpec.feature 'user edits account' do
+  let!(:user) { create(:user) }
 
   background do
     login_as(user, scope: :user)
