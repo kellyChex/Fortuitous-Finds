@@ -4,7 +4,7 @@ RSpec.feature 'user purchases item' do
   let!(:signed_in_user) { create(:user) }
   let!(:user)           { create(:user) }
   let!(:listing)        { create(:listing, user: user) }
-  let!(:listing2)        { create(:listing, user: user) }
+  let!(:listing2)       { create(:listing, user: user) }
 
   background do
     login_as(signed_in_user, scope: :user)
@@ -22,7 +22,7 @@ RSpec.feature 'user purchases item' do
     end
   end
 
-  context "from own users' listing" do
+  context "from their own listing" do
     it 'is successful' do
       visit listing_path(listing2)
       click_on('Buy It Now')
