@@ -8,4 +8,8 @@ FactoryGirl.define do
     association :listing
     created_at { Time.now }
   end
+
+  factory :invalid_order, class: 'Order' do
+    address nil
+  end
 end

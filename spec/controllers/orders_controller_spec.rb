@@ -23,7 +23,7 @@ RSpec.describe OrdersController, type: :controller do
   end
 
   describe 'POST #create' do
-    context 'with valid attribute' do
+    context 'with valid attributes' do
       it 'saves the new order in the database' do
         expect{ post :create, order: attributes_for(:order),
           listing_id: @listing1.id }.to change(Order, :count).by(1)
@@ -34,6 +34,19 @@ RSpec.describe OrdersController, type: :controller do
         post :create, order: attributes_for(:order), listing_id: @listing1.id
         expect(response).to redirect_to(root_url)
       end
+
+    context 'with invalid attributes' do
+      it 'does not save the new order in the database' do
+        expect{ post :create, order: attributes_for(:invalid_order),
+          listing_id: @listing1.id }.to_not change(Order, :count)
+      end
+
+      it 're-renders the :new template' do
+        post :create, order: attributes_for(:invalid_order),
+          listing_id: @listing1.id
+        expect(response).to render_template :new
+      end
+    end
   end
 
   describe 'GET #sellers_sales' do
