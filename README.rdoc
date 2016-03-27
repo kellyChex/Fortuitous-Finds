@@ -1,8 +1,8 @@
 == README
 
-[![Code Climate](https://codeclimate.com/repos/56ef7e42833db7006f00a899/badges/cd32996b1dfd804dcef6/gpa.svg)](https://codeclimate.com/repos/56ef7e42833db7006f00a899/feed)
+{<img src="https://codeclimate.com/repos/56ef7e42833db7006f00a899/badges/cd32996b1dfd804dcef6/gpa.svg" />}[https://codeclimate.com/repos/56ef7e42833db7006f00a899/feed]
 
-[![Test Coverage](https://codeclimate.com/repos/56ef7e42833db7006f00a899/badges/cd32996b1dfd804dcef6/coverage.svg)](https://codeclimate.com/repos/56ef7e42833db7006f00a899/coverage)
+{<img src="https://codeclimate.com/repos/56ef7e42833db7006f00a899/badges/cd32996b1dfd804dcef6/coverage.svg" />}[https://codeclimate.com/repos/56ef7e42833db7006f00a899/coverage]
 
 
 
