@@ -9,14 +9,11 @@ class OrdersController < ApplicationController
     @orders = Order.all.where(buyer: current_user).order("created_at DESC")
   end
 
-  # GET /orders/new
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
@@ -38,12 +35,7 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:address, :city, :state)
     end
