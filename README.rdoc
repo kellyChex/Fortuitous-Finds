@@ -3,32 +3,3 @@
 {<img src="https://codeclimate.com/repos/56ef7e42833db7006f00a899/badges/cd32996b1dfd804dcef6/gpa.svg" />}[https://codeclimate.com/repos/56ef7e42833db7006f00a899/feed]
 
 {<img src="https://codeclimate.com/repos/56ef7e42833db7006f00a899/badges/cd32996b1dfd804dcef6/coverage.svg" />}[https://codeclimate.com/repos/56ef7e42833db7006f00a899/coverage]
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
