@@ -141,6 +141,19 @@ RSpec.describe ListingsController, type: :controller do
     describe 'DELETE destroy' do
       before :each do
         @listing = create(:listing, user: @user)
+        @listing2 = create(:listing, user: @user2)
+      end
+
+      context 'the listing user is not the current user' do
+        it 'located the requested @listing' do
+          delete :destroy, id: @listing2
+          expect(assigns(:listing)).to eq(@listing2)
+        end
+
+        it 'redirects to the root url' do
+          patch :update, id: @listing2, listing: attributes_for(:listing)
+          expect(response).to redirect_to root_url
+        end
       end
 
       it 'deletes the listing' do
