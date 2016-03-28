@@ -16,6 +16,15 @@
     <ul class="nav navbar-nav">
       <li><%= link_to "About", pages_about_path %></li>
       <li><%= link_to "Contact", pages_contact_path %></li>
+      <div id= "search_form">
+        <form action ='/pages/search' method='get' class='searchform'>
+          <input id="word_search_input" type="text" placeholder=" Search" name="search_string" />
+          <button type="submit" class="btn btn-default form_button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </form>
+      </div>
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>

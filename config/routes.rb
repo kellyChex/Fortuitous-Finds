@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/contact'
+  get 'pages/search'
   get 'seller' => 'listings#seller'
   get 'sellers_sales' => 'orders#sellers_sales'
   get 'buyers_purchases' => 'orders#buyers_purchases'
