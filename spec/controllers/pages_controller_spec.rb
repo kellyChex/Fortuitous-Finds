@@ -8,34 +8,34 @@ RSpec.describe PagesController, type: :controller do
     @listing2 = create(:listing, name: 'Car', user: @user)
     @user2_listing = create(:listing, name: 'Surfboard', user: @user2)
     sign_in @user
+    request.env["HTTP_REFERER"] = '/'
   end
 
   describe 'GET #search' do
     context 'with valid attributes' do
       it 'assigns the search to @search' do
-        search = @search
-        get :search, @search
-        expect(assigns(:search_string)).to eq(search)
+
+        get :search, search_string: @listing1.name
+        expect(assigns(:search)).to eq([@listing1])
       end
 
       it 'renders the search view' do
-        search = @search
-        get :search, @search
-        expect(response).to render_template('pages/search', 'layouts/application')
+        get :search, search_string: @listing1.name
+        expect(response).to render_template('pages/search')
       end
     end
 
     context 'with invalid attributes' do
       it 'assigns the search to @search' do
-        search = @search
+        @search = nil
         get :search, @search
-        expect(assigns(:search_string)).to eq(search)
+        expect(assigns(:search_string)).to eq(nil)
       end
 
       it 'renders the search view' do
-        search = @search
+        @search = nil
         get :search, @search
-        expect(response).to render_template('pages/search', 'layouts/application')
+        expect(response).to redirect_to '/'
       end
     end
   end
