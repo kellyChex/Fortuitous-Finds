@@ -1,9 +1,9 @@
-<% if !@storage.nil? && !@storage.nil? %>
+<% if !@search.nil? && !@search.nil? %>
     <h3>Results(s) found:</h3>
     <br>
     <div class="center">
       <div class="row">
-        <% @storage.each do |listing| %>
+        <% @search.each do |listing| %>
           <div class="col-md-3">
             <div class="thumbnail">
               <%= link_to image_tag(listing.image.url), listing %>
