@@ -13,7 +13,7 @@ RSpec.describe PagesController, type: :controller do
 
   describe 'GET #search' do
     context 'with valid attributes' do
-      it 'assigns the search to @search' do
+      it 'assigns the search to search_string' do
 
         get :search, search_string: @listing1.name
         expect(assigns(:search)).to eq([@listing1])
