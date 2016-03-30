@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user creates a new listing' do
+RSpec.feature 'User creates a new listing' do
   let!(:user) { create(:user) }
 
   background do

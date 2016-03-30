@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user purchases item' do
+RSpec.feature 'User purchases item' do
   let!(:signed_in_user) { create(:user) }
   let!(:user)           { create(:user) }
   let!(:listing)        { create(:listing, user: user) }

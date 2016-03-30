@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user cancels account', :js do
+RSpec.feature 'User cancels account', :js do
   let!(:user) { create(:user) }
 
   background do

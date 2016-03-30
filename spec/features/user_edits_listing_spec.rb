@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user edits listing' do
+RSpec.feature 'User edits listing' do
   let!(:user)    { create(:user) }
   let!(:listing) { create(:listing, user: user) }
 

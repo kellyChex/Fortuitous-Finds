@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user removes listing', :js do
+RSpec.feature 'User removes listing', :js do
   let!(:user)    { create(:user) }
   let!(:listing) { create(:listing, user: user) }
 

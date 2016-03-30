@@ -2,11 +2,8 @@ require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
   before :each do
-    @user = create(:user, name: 'Kat')
-    @user2 = create(:user, name: 'Billy')
-    @listing1 = create(:listing, name: 'Rug', user: @user)
-    @listing2 = create(:listing, name: 'Car', user: @user)
-    @user2_listing = create(:listing, name: 'Surfboard', user: @user2)
+    @user = create(:user)
+    @listing = create(:listing, user: @user)
     sign_in @user
     request.env["HTTP_REFERER"] = '/'
   end
@@ -15,12 +12,12 @@ RSpec.describe PagesController, type: :controller do
     context 'with valid attributes' do
       it 'assigns the search to search_string' do
 
-        get :search, search_string: @listing1.name
-        expect(assigns(:search)).to eq([@listing1])
+        get :search, search_string: @listing.name
+        expect(assigns(:search)).to eq([@listing])
       end
 
       it 'renders the search view' do
-        get :search, search_string: @listing1.name
+        get :search, search_string: @listing.name
         expect(response).to render_template('pages/search')
       end
     end

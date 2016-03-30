@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'user edits account' do
+RSpec.feature 'User edits account' do
   let!(:user) { create(:user) }
 
   background do
