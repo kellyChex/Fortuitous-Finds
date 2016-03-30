@@ -4,7 +4,6 @@ RSpec.feature 'Sign in' do
   before do
     @user = create(:user)
     visit new_user_session_path
-    save_and_open_page
   end
 
   context 'with valid credentials' do
