@@ -9,6 +9,20 @@ RSpec.describe ListingsController, type: :controller do
       sign_in @user
     end
 
+    describe 'GET #index' do
+      it 'assigns all listings in descending order' do
+        old_listing = create(:listing, created_at: '12/22/2014')
+        new_listing = create(:listing, created_at: '12/25/2014')
+        get :index
+        expect(assigns(:listings)).to match([new_listing, old_listing])
+      end
+
+      it 'renders the :index view' do
+        get :index
+        expect(response).to render_template :index
+      end
+    end
+
     describe 'listing#seller' do
       it "assigns all of sellers' listings in descending order" do
         listing1 = create(:listing, created_at: '12/22/2014',
@@ -24,20 +38,6 @@ RSpec.describe ListingsController, type: :controller do
       it 'renders the :seller view' do
         get :seller
         expect(response).to render_template :seller
-      end
-    end
-
-    describe 'GET #index' do
-      it 'assigns all listings as @listings in descending order' do
-        old_listing = create(:listing, created_at: '12/22/2014')
-        new_listing = create(:listing, created_at: '12/25/2014')
-        get :index
-        expect(assigns(:listings)).to match([new_listing, old_listing])
-      end
-
-      it 'renders the :index view' do
-        get :index
-        expect(response).to render_template :index
       end
     end
 

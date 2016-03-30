@@ -10,7 +10,6 @@ RSpec.feature 'User edits account' do
   context "with valid attributes" do
     it 'is successful updated' do
       visit edit_user_registration_path
-      save_and_open_page
       fill_in 'Name', with: 'Bill'
       fill_in 'Current password', with: 'password123'
       click_on 'Update'

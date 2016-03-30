@@ -2,14 +2,15 @@ require 'rails_helper'
 
 RSpec.feature 'Sign in' do
   before do
-    @user = create(:user, email: 'k@xyz.com', password: 'Password123')
+    @user = create(:user)
     visit new_user_session_path
+    save_and_open_page
   end
 
   context 'with valid credentials' do
     it 'logs user in' do
-      fill_in 'Email', with: 'k@xyz.com'
-      fill_in 'Password', with: 'Password123'
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: @user.password
       click_button 'Log in'
       expect(page).to have_content I18n.t('devise.sessions.signed_in')
     end
